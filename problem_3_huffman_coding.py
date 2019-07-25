@@ -98,7 +98,7 @@ def set_codes(tree, codes, code=""):
 if __name__ == "__main__":
 
     a_great_sentence = "The bird is the word"
-    an_okay_sentence = "Beep beep I'm a sheep"
+    an_okay_sentence = "2019 Can it do special characters? ıÍ´‰Œ˚•˚£££ß´ßßßßåççÇç"
     a_bad_sentence = ''
 
     def print_test(sentence):
@@ -116,7 +116,11 @@ if __name__ == "__main__":
         print("The content of the decoded data is: {}\n".format(decoded_data))
         print("\n-----------------------------\n")
 
-
+    # normal case
     print_test(a_great_sentence)
+
+    # edge case 1 special characters
     print_test(an_okay_sentence)
+
+    # edge case 2 no characters
     print_test(a_bad_sentence)

@@ -40,6 +40,8 @@ def find_files(suffix, path):
 
 print(find_files('.c', '.'))
 
+# edge case with empty path
 print(find_files('.c', ''))
 
+# edge case with forbidden path
 print(find_files('.c', '/'))

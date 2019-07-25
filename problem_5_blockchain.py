@@ -101,9 +101,12 @@ print(bc.top().previous)
 print(bc.search('foo'))
 # returns the first block with previous_hash: 0
 
-bc.append('foo')
+# edge case append empty string as data to block
+bc.append('')
 print(bc.size())
+print(bc.top())
 # returns 4
 
-print(bc.top())
-# returns top block with same hash as first block.
+# edge case test if chain can go back to the start of the chain
+print(bc.top().previous.previous.previous.previous)
+# returns None

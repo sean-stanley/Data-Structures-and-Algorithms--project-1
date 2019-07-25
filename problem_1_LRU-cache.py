@@ -55,11 +55,12 @@ our_cache.set(6, 6)
 
 print(our_cache.get(3))     # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 
+# edge case 1 -- None key
 our_cache.set(None, 3)
 print(our_cache.get(None))  # returns 3
 
 big_data = ''.join([str(x) for x in range(1000)])
 our_cache.set(big_data, big_data)
 
-# testing very large value
+# edge case 2 -- testing very large value
 print(our_cache.get(big_data)) # returns very large string

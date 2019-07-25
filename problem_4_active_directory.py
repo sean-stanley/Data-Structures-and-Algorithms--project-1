@@ -60,8 +60,10 @@ def is_user_in_group(user, group):
 print(is_user_in_group(SUB_CHILD_USER, parent))
 # returns True
 
-print(is_user_in_group('foo', parent))
+# edge case no user selected
+print(is_user_in_group('', parent))
 # returns False
 
-print(is_user_in_group('foo', ''))
+# edge case no group provided
+print(is_user_in_group('foo', None))
 # returns Exception(Group must be a group)
