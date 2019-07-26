@@ -10,6 +10,9 @@ class LRU_Cache(object):
 
     def get(self, key):
         # Retrieve item from provided key. Return -1 if nonexistent.
+        # raise exception if capacity is 0
+        if self.capacity <= 0:
+            return Exception('Cannot perform "get" on 0 capacity cache.')
         value = self.frames.get(key, -1)
         self.clock.append(key)
         self.check_capacity()
@@ -59,8 +62,11 @@ print(our_cache.get(3))     # returns -1 because the cache reached it's capacity
 our_cache.set(None, 3)
 print(our_cache.get(None))  # returns 3
 
-big_data = ''.join([str(x) for x in range(1000)])
-our_cache.set(big_data, big_data)
+# edge case 0 capacity cache
 
-# edge case 2 -- testing very large value
-print(our_cache.get(big_data)) # returns very large string
+empty_cache = LRU_Cache(0)
+
+empty_cache.set(1,1)
+
+print(empty_cache.get(1))
+# print: Cannot perform "get" on 0 capacity cache.

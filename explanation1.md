@@ -9,4 +9,4 @@ The variables 'clock' and 'frames' are named after the lower-level CS terms for 
 
 Time/Space complexity:
 
-All methods are O(1) because they use a dictionary and pop/append of a deque. For space complexity we have linear complexity up to the size of the cache.
+All methods are O(1) because they use a dictionary and pop/append of a deque. For space complexity we have linear complexity up to the size of the cache. Assuming all values had equivalent sizes k, the space complexity could be written as O(n*k) where n is the size of the cache.

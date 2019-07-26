@@ -11,4 +11,4 @@ Time/Space complexity:
 
 An OS often uses indexing/hashing of file names to make binary trees of files O(log(n)) for fast lookup. However this script doesn't take advantage of any of that. We load every leaf and branch into the script once for O(n) where n is the number of files in all the folders from the start point.
 
-In terms of space complexity each path is read once so the complexity becomes O(n).
+In terms of space complexity each path is read once so the complexity becomes O(n) where n represents each file and directory path from the initial path.

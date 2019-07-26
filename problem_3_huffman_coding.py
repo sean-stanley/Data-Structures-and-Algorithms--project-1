@@ -9,11 +9,9 @@ def huffman_encoding(data):
     if not data:
         return '0', ''
 
-    print(f"length of sentence is {len(data)}")
     codes = {}
     tree = build_tree(frequency(data))
     trimmed_tree = trim_tree(tree)
-
     set_codes(trimmed_tree, codes)
     output = ""
     for s in data:
@@ -90,7 +88,7 @@ def trim_tree(tree):
 
 def set_codes(tree, codes, code=""):
     if isinstance(tree, str):
-        codes[tree] = code
+        codes[tree] = code or "0"
     else:
         set_codes(tree[0], codes, code+"0")
         set_codes(tree[1], codes, code+"1")
@@ -98,7 +96,7 @@ def set_codes(tree, codes, code=""):
 if __name__ == "__main__":
 
     a_great_sentence = "The bird is the word"
-    an_okay_sentence = "2019 Can it do special characters? ıÍ´‰Œ˚•˚£££ß´ßßßßåççÇç"
+    a_repeated_sentence = "gggg"
     a_bad_sentence = ''
 
     def print_test(sentence):
@@ -106,6 +104,8 @@ if __name__ == "__main__":
         print("The content of the data is: {}\n".format(sentence))
 
         encoded_data, tree = huffman_encoding(sentence)
+
+        print(tree)
 
         print("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
         print("The content of the encoded data is: {}\n".format(encoded_data))
@@ -119,8 +119,8 @@ if __name__ == "__main__":
     # normal case
     print_test(a_great_sentence)
 
-    # edge case 1 special characters
-    print_test(an_okay_sentence)
+    # edge case 1 repeated characters
+    print_test(a_repeated_sentence)
 
     # edge case 2 no characters
     print_test(a_bad_sentence)
